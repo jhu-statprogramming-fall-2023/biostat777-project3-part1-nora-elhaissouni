@@ -81,9 +81,9 @@ ggplot(starbucks, aes(x = caffeine_mg)) +
        subtitle = "caffeien content ranges",
        caption = "Starbucks nutrition data") +
   theme_minimal()
-
-#Sugar is more uniformly distributed, while caffeiene ranges are high
 ```
+Sugar is more uniformly distributed, while caffeiene ranges are high
+
 
 ### Does sugar content change based on milk type?
 
@@ -116,6 +116,13 @@ ggplot(starbucks, aes(x = milk, y = sugar_g, fill =  factor(milk))) +
 # We see event with no milk (0), some drinks still have moderate sugar content but more testing would be needed.
 ```
 
+0 is no milk, 1 is nonfat, 2 is 2%, 3 is soy, 4 is coconut, and 5 is whole milk
+We see that despite using different milk type, the average sugar content for drinks with specific milk types (aside from no milk) are all relatively close to one another. Thus, we can not assume that milk contributes in high sugar content, but need to assess this further by considering other factors or more rigorous testing.
+
+Without taking the average of all drinks with a certain milk, here I am looking at each drink type (average) and individually facetted by milk type to get a better sense of the distribution
+We see event with no milk (0), some drinks still have moderate sugar content but more testing would be needed.
+
+
 ### Do drinks named "skinny" have an average lower sugar and calorie count compared to other drinks?
 
 ```{r}
@@ -137,9 +144,17 @@ starbucks %>%
        subtitle = "Plotplot showing the distribution of sugar content",
        x = "Group",
        y = "Mean Sugar Content (g)")
-  
-
-
-# We see that the skinny drinks clearly have a lower sugar average compared to other drinks. However, it is important to note that there are only 18 skinny while the rest (1129) of the drinks are classified as regular. This definitely plays a role and further analysis of a smaller group of the regular drinks could be assessed. 
 
 ```
+
+We see that the skinny drinks clearly have a lower sugar average compared to other drinks. However, it is important to note that there are only 18 skinny while the rest (1129) of the drinks are classified as regular. This definitely plays a role and further analysis of a smaller group of the regular drinks could be assessed. 
+
+## Summary:
+Overall, sugar and caffeine amounts vary for different drinks. However, milk type may play a role in increasing sugar amounts in these drinks. More assessment on other factors should first be considered, such as syrups, flaorings, etc. Drinks labelled as "skinny" also have a lower sugar concentration in comparison to all other drinks, but more assesment of what exactly the "skinny" drinks consist of could be important in properly understanding.
+
+# Package Functions:
+tidyr: %>% 
+dplyr: group_by, summarise, n(), mutate(), ifelse, grepl
+ggplot2: geom_histogram, geom_point, geom_line, facet_grid
+purrr: group_split, map_df
+ggrain: geom_rain, rain.side
