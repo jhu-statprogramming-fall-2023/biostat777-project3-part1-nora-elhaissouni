@@ -1,3 +1,24 @@
+## Part 1D:
+
+[Here](https://github.com/njudd/ggrain) is the link to where the original R package came from.
+
+[Here](https://jhu-statprogramming-fall-2023.github.io/biostat840-project3-pkgdown-<nora-elhaissouni>)
+
+These are the 5 things I customized for the pkgdown website:
+bootswatch: sandstone - this customization made the theme sandstone which is warmer and neutral colors to the different buttons and navigations of the website
+bslib:
+  bg: "#F5F5F5" - a light grey shade for the website background
+  fg: "#333333" - dark grey main text
+  primary: "#007BFF" - blue color for the main buttons and packages/functions
+  base_font: {google: "Roboto"} - this customized the text font to Roboto retrived from google fonts
+  code-bg: "#FFFFFF" - code blocks background color is white (for descrubing the functions in the text not in code blocks)
+  theme: solarized-light - overall theme color palette set
+
+Original author of the package: Listed in the citations
+Example Analysis Author: Nora Elhaissouni
+Exported functions and examples are below:
+
+
 <img src="https://github.com/jorvlan/open-visualizations/blob/master/R/package_figures/Rplot03.png" width="200" height="190" align="right"/>
 
 [![R-CMD-check](https://github.com/njudd/ggrain/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/njudd/ggrain/actions/workflows/R-CMD-check.yaml)

@@ -1,0 +1,15 @@
+url: ~
+template:
+  bootstrap: 5
+  bootswatch: sandstone
+  bslib:
+    bg: "#F5F5F5"
+    fg: "#333333"
+    primary: "#007BFF"
+    base_font: {google: "Roboto"}
+    code-bg: "#FFFFFF"
+  theme: solarized-light
+
+
+
+
