@@ -1,15 +1,4 @@
-url: ~
+url: https://jhu-statprogramming-fall-2023.github.io/biostat777-project3-part1-nora-elhaissouni/
 template:
   bootstrap: 5
-  bootswatch: sandstone
-  bslib:
-    bg: "#F5F5F5"
-    fg: "#333333"
-    primary: "#007BFF"
-    base_font: {google: "Roboto"}
-    code-bg: "#FFFFFF"
-  theme: solarized-light
-
-
-
 
