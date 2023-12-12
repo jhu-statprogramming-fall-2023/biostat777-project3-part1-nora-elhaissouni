@@ -1,10 +1,20 @@
 ---
 title: "Example Analysis"
 date: "2023-12-12"
-output: rmarkdown::html_vignettevignette: >  %\VignetteIndexEntry{ExampleAnalysis_vignette}  %\VignetteEngine{knitr::rmarkdown}  %\VignetteEncoding{UTF-8}
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{exampleanalysis_vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}knitr::opts_chunk$set(  collapse = TRUE,  #warning = FALSE, message = FALSE,  comment = "#>")```
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  #warning = FALSE, message = FALSE,
+  comment = "#>"
+)
+```
 
 ```{r setup, include=FALSE}
 library(tidytuesdayR)
