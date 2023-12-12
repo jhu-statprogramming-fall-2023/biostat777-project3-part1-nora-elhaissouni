@@ -154,10 +154,8 @@ types?<a class="anchor" aria-label="anchor" href="#how-are-sugar-and-caffeine-di
 <span>       subtitle <span class="op">=</span> <span class="st">"caffeien content ranges"</span>,</span>
 <span>       caption <span class="op">=</span> <span class="st">"Starbucks nutrition data"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="exampleanalysis_files/figure-html/unnamed-chunk-3-2.png" width="700"></p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="co">#Sugar is more uniformly distributed, while caffeiene ranges are high</span></span></code></pre></div>
+<p><img src="exampleanalysis_files/figure-html/unnamed-chunk-3-2.png" width="700">
+Sugar is more uniformly distributed, while caffeiene ranges are high</p>
 </div>
 <div class="section level4">
 <h4 id="does-sugar-content-change-based-on-milk-type">Does sugar content change based on milk type?<a class="anchor" aria-label="anchor" href="#does-sugar-content-change-based-on-milk-type"></a>
@@ -165,7 +163,7 @@ types?<a class="anchor" aria-label="anchor" href="#how-are-sugar-and-caffeine-di
 <p>This will reveal if milk is what may be contributing to the high
 sugar content in starbucks drinks, or if other factors (syrups, added
 sugar, etc are)</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">starbucks</span> <span class="op">%&gt;%</span> <span class="fu">group_by</span><span class="op">(</span><span class="va">milk</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">summarise</span><span class="op">(</span>sugar_average <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">sugar_g</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">milk</span>, y <span class="op">=</span> <span class="va">sugar_average</span>, fill <span class="op">=</span> <span class="va">milk</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
@@ -176,7 +174,7 @@ sugar, etc are)</p>
 <span>       y <span class="op">=</span> <span class="st">"Average Sugar Content (g)"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="exampleanalysis_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">starbucks</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">milk</span>, y <span class="op">=</span> <span class="va">sugar_g</span>, fill <span class="op">=</span>  <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">milk</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="../reference/geom_rain.html">geom_rain</a></span><span class="op">(</span>rain.side <span class="op">=</span> <span class="st">'l'</span><span class="op">)</span><span class="op">+</span></span>
@@ -187,19 +185,30 @@ sugar, etc are)</p>
 <span>       y <span class="op">=</span> <span class="st">"Sugar Content (g)"</span>,</span>
 <span>       fill <span class="op">=</span> <span class="st">"Milk Type"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="exampleanalysis_files/figure-html/unnamed-chunk-4-2.png" width="700"></p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># 0 is no milk, 1 is nonfat, 2 is 2%, 3 is soy, 4 is coconut, and 5 is whole milk</span></span>
 <span><span class="co"># We see that despite using different milk type, the average sugar content for drinks with specific milk types (aside from no milk) are all relatively close to one another. Thus, we can not assume that milk contributes in high sugar content, but need to assess this further by considering other factors or more rigorous testing.</span></span>
 <span></span>
 <span><span class="co"># without taking the average of all drinks with a certain milk, here I am looking at each drink type (average) and individually facetted by milk type to get a better sense of the distribution</span></span>
 <span><span class="co"># We see event with no milk (0), some drinks still have moderate sugar content but more testing would be needed.</span></span></code></pre></div>
+<p>0 is no milk, 1 is nonfat, 2 is 2%, 3 is soy, 4 is coconut, and 5 is
+whole milk We see that despite using different milk type, the average
+sugar content for drinks with specific milk types (aside from no milk)
+are all relatively close to one another. Thus, we can not assume that
+milk contributes in high sugar content, but need to assess this further
+by considering other factors or more rigorous testing.</p>
+<p>Without taking the average of all drinks with a certain milk, here I
+am looking at each drink type (average) and individually facetted by
+milk type to get a better sense of the distribution We see event with no
+milk (0), some drinks still have moderate sugar content but more testing
+would be needed.</p>
 </div>
 <div class="section level4">
 <h4 id="do-drinks-named-skinny-have-an-average-lower-sugar-and-calorie-count-compared-to-other-drinks">Do drinks named “skinny” have an average lower sugar and calorie
 count compared to other drinks?<a class="anchor" aria-label="anchor" href="#do-drinks-named-skinny-have-an-average-lower-sugar-and-calorie-count-compared-to-other-drinks"></a>
 </h4>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#To use purrr functions (i know there is an easier way)</span></span>
 <span><span class="va">mean_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu">summarise</span><span class="op">(</span><span class="va">data</span>, mean_sugar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">sugar_g</span><span class="op">)</span>, count <span class="op">=</span> <span class="fu">n</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
@@ -221,12 +230,30 @@ count compared to other drinks?<a class="anchor" aria-label="anchor" href="#do-d
 <span><span class="co">#&gt; Warning in geom_col(position = "dodge", width = 0.7, stat = "identity"):</span></span>
 <span><span class="co">#&gt; Ignoring unknown parameters: `stat`</span></span></code></pre></div>
 <p><img src="exampleanalysis_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span>  </span>
-<span></span>
-<span></span>
-<span><span class="co"># We see that the skinny drinks clearly have a lower sugar average compared to other drinks. However, it is important to note that there are only 18 skinny while the rest (1129) of the drinks are classified as regular. This definitely plays a role and further analysis of a smaller group of the regular drinks could be assessed. </span></span></code></pre></div>
+<p>We see that the skinny drinks clearly have a lower sugar average
+compared to other drinks. However, it is important to note that there
+are only 18 skinny while the rest (1129) of the drinks are classified as
+regular. This definitely plays a role and further analysis of a smaller
+group of the regular drinks could be assessed.</p>
 </div>
+<div class="section level3">
+<h3 id="summary">Summary:<a class="anchor" aria-label="anchor" href="#summary"></a>
+</h3>
+<p>Overall, sugar and caffeine amounts vary for different drinks.
+However, milk type may play a role in increasing sugar amounts in these
+drinks. More assessment on other factors should first be considered,
+such as syrups, flaorings, etc. Drinks labelled as “skinny” also have a
+lower sugar concentration in comparison to all other drinks, but more
+assesment of what exactly the “skinny” drinks consist of could be
+important in properly understanding.</p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="package-functions">Package Functions:<a class="anchor" aria-label="anchor" href="#package-functions"></a>
+</h2>
+<p>tidyr: %&gt;% dplyr: group_by, summarise, n(), mutate(), ifelse,
+grepl ggplot2: geom_histogram, geom_point, geom_line, facet_grid purrr:
+group_split, map_df ggrain: geom_rain, rain.side</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
