@@ -108,12 +108,6 @@ ggplot(starbucks, aes(x = milk, y = sugar_g, fill =  factor(milk))) +
        x = "Milk Type",
        y = "Sugar Content (g)",
        fill = "Milk Type")
-
-# 0 is no milk, 1 is nonfat, 2 is 2%, 3 is soy, 4 is coconut, and 5 is whole milk
-# We see that despite using different milk type, the average sugar content for drinks with specific milk types (aside from no milk) are all relatively close to one another. Thus, we can not assume that milk contributes in high sugar content, but need to assess this further by considering other factors or more rigorous testing.
-
-# without taking the average of all drinks with a certain milk, here I am looking at each drink type (average) and individually facetted by milk type to get a better sense of the distribution
-# We see event with no milk (0), some drinks still have moderate sugar content but more testing would be needed.
 ```
 
 0 is no milk, 1 is nonfat, 2 is 2%, 3 is soy, 4 is coconut, and 5 is whole milk
